@@ -1,7 +1,9 @@
 
 import React, {useLayoutEffect} from 'react'
 import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
-import products from '../data/products';
+// import products from '../data/products';
+import {useSelector, useDispatch} from 'react-redux'
+import { ProductSlice } from '../store/ProductSlice';
 
 const ProductScreen = ({navigation}) => {
 
@@ -11,6 +13,9 @@ const ProductScreen = ({navigation}) => {
   //   })
   // })
 
+  const products = useSelector((state) => state.products.products);
+
+  const dispatch = useDispatch();
 
   return (
     <View>
@@ -21,7 +26,14 @@ const ProductScreen = ({navigation}) => {
             width: '50%',
             padding: 1
           }}
-          onPress={() => navigation.navigate('ProductDetails')}
+         
+
+          onPress={() => {
+             //update selected Product
+             dispatch(ProductSlice.actions.setSelectedProduct(item.id));
+
+            navigation.navigate('ProductDetails')
+          }}
           >
             <Image 
             source={{uri: item.image}}

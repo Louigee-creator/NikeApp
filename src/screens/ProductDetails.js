@@ -1,10 +1,13 @@
 import { View, Text, Image, FlatList, useWindowDimensions, ScrollView, Pressable } from 'react-native'
 import React, {useLayoutEffect} from 'react'
 import products from '../data/products'
+import {useSelector} from 'react-redux'
 
 const ProductDetails = ({navigation}) => {
-    const product = products[14];
+
+    const product = useSelector((state) => state.products.selectedProduct);
     const  { width } = useWindowDimensions();
+
 
     const addtoCart = () => {
         console.warn('Add to Cart')

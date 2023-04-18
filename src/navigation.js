@@ -24,7 +24,7 @@ const Navigation = () => {
             <Pressable style={{
                 flexDirection: 'row'
             }}
-            onPress={() => navigation.navigate('Shopping')}
+            onPress={() => navigation.navigate('Cart')}
             >
                 <FontAwesome name="shopping-cart" size={18} color="gray" />
                 <Text style={{
@@ -41,7 +41,7 @@ const Navigation = () => {
       component={ProductDetails} 
       options={{presentation: 'modal'}} 
       />
-      <Stack.Screen name="Shopping" component={Shopping} />
+      <Stack.Screen name="Cart" component={Shopping} />
     </Stack.Navigator>
   </NavigationContainer>
   )
