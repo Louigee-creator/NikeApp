@@ -1,26 +1,38 @@
 
-import React from 'react'
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import React, {useLayoutEffect} from 'react'
+import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
 import products from '../data/products';
 
-const ProductScreen = () => {
+const ProductScreen = ({navigation}) => {
+
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerShown: false
+  //   })
+  // })
+
+
   return (
     <View>
          <FlatList 
         data={products}
         renderItem={({item})=> (
-          <View style={{
+          <Pressable style={{
             width: '50%',
             padding: 1
-          }}>
+          }}
+          onPress={() => navigation.navigate('ProductDetails')}
+          >
             <Image 
             source={{uri: item.image}}
             style={{
               width: "100%",
               aspectRatio: 1
             }}
+            
+          
           />
-          </View>
+          </Pressable>
         )}
         numColumns={2}
       />

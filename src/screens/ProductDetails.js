@@ -1,14 +1,20 @@
 import { View, Text, Image, FlatList, useWindowDimensions, ScrollView, Pressable } from 'react-native'
-import React from 'react'
+import React, {useLayoutEffect} from 'react'
 import products from '../data/products'
 
-const ProductDetails = () => {
+const ProductDetails = ({navigation}) => {
     const product = products[14];
     const  { width } = useWindowDimensions();
 
     const addtoCart = () => {
         console.warn('Add to Cart')
     }
+
+    // useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //       headerShown: false
+    //     })
+    //   })
 
   return (
     <View>
